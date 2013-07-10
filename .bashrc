@@ -169,9 +169,15 @@ PS1="\[\033[0;34m\][\u@\h:\w]$\[\033[0m\]"
 ## -----------------------
 
 # 2.1) Safety
-alias rm="rm -i"
-alias mv="mv -i"
-alias cp="cp -i"
+# DO NOT ALIAS 'rm -i' to rm!
+# This is one of the worst "safety" practices that exist
+# One day you will run into an account that doesn't have this
+# and expect it to prompt but it won't and it will delete 
+# your beloved files. Call it something else. Like del or
+# like I did in this case. Pre-fix it.
+alias arm="rm -i"
+alias amv="mv -i"
+alias acp="cp -i"
 set -o noclobber
 
 # 2.2) Listing, directories, and motion
